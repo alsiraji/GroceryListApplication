@@ -1,24 +1,201 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dSZ-ts-TSD">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RegisterViewController" customModule="GroceryListApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Family Grocery" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZW-zN-XM5">
+                                <rect key="frame" x="20" y="160" width="353" height="35"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="32"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BRP-xQ-eeg">
+                                <rect key="frame" x="20" y="364" width="353" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email...." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dua-mR-v75">
+                                <rect key="frame" x="20" y="272" width="353" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CEK-qI-edj">
+                                <rect key="frame" x="51" y="450" width="291" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="291" id="jFC-2y-e8X"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Log In">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" systemColor="systemGray2Color"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kmw-Kv-DOZ">
+                                <rect key="frame" x="51" y="537" width="291" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="291" id="eFr-zJ-fmZ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Sign Up">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" systemColor="quaternarySystemFillColor"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <constraints>
+                            <constraint firstItem="dua-mR-v75" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2eB-3T-aoe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dua-mR-v75" secondAttribute="trailing" constant="20" id="59v-ly-4qM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BRP-xQ-eeg" secondAttribute="trailing" constant="20" id="5KO-76-Jot"/>
+                            <constraint firstItem="CEK-qI-edj" firstAttribute="top" secondItem="BRP-xQ-eeg" secondAttribute="bottom" constant="52" id="9gD-Zl-ixO"/>
+                            <constraint firstItem="Kmw-Kv-DOZ" firstAttribute="top" secondItem="CEK-qI-edj" secondAttribute="bottom" constant="52" id="CmZ-Vr-Vnp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HZW-zN-XM5" secondAttribute="trailing" constant="20" id="Hfm-RW-fS6"/>
+                            <constraint firstItem="HZW-zN-XM5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="57" id="KSk-Ey-hys"/>
+                            <constraint firstItem="BRP-xQ-eeg" firstAttribute="top" secondItem="dua-mR-v75" secondAttribute="bottom" constant="58" id="Lef-Md-4mH"/>
+                            <constraint firstItem="BRP-xQ-eeg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Sf5-cm-s41"/>
+                            <constraint firstItem="HZW-zN-XM5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="jCs-bA-ceA"/>
+                            <constraint firstItem="dua-mR-v75" firstAttribute="top" secondItem="HZW-zN-XM5" secondAttribute="bottom" constant="77" id="uga-Od-nRs"/>
+                            <constraint firstItem="CEK-qI-edj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xFm-Gj-mqV"/>
+                            <constraint firstItem="Kmw-Kv-DOZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yBq-fp-Lzj"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="4ea-yo-z8D"/>
+                    <connections>
+                        <segue destination="KRG-vU-LqU" kind="presentation" identifier="afterRegister" modalPresentationStyle="fullScreen" id="WNZ-Lb-rvf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="979.38931297709917" y="-2.1126760563380285"/>
+        </scene>
+        <!--Groceries to buy-->
+        <scene sceneID="qAf-Oj-Hzo">
+            <objects>
+                <viewController id="QV7-gf-XFx" customClass="GroceryListViewController" customModule="GroceryListApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CmH-6A-Q6X">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="F1Q-7g-0Fd">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="spb-Wn-Vri"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="spb-Wn-Vri" firstAttribute="trailing" secondItem="F1Q-7g-0Fd" secondAttribute="trailing" id="4sS-cC-keA"/>
+                            <constraint firstItem="F1Q-7g-0Fd" firstAttribute="top" secondItem="spb-Wn-Vri" secondAttribute="top" id="AKe-FU-Sga"/>
+                            <constraint firstItem="F1Q-7g-0Fd" firstAttribute="leading" secondItem="spb-Wn-Vri" secondAttribute="leading" id="Dij-jJ-ONJ"/>
+                            <constraint firstItem="spb-Wn-Vri" firstAttribute="bottom" secondItem="F1Q-7g-0Fd" secondAttribute="bottom" id="Thl-NF-RIr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Groceries to buy" id="mFt-lf-vk3">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="scribble" catalog="system" id="fBG-cl-XnX">
+                            <connections>
+                                <segue destination="AMa-Dc-QMq" kind="show" id="qin-XX-n6d"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="WG4-rx-eaX"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2m7-rU-HUW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3037.4045801526718" y="-2.1126760563380285"/>
+        </scene>
+        <!--Family Users View Controller-->
+        <scene sceneID="lB6-uP-vJp">
+            <objects>
+                <viewController id="AMa-Dc-QMq" customClass="FamilyUsersViewController" customModule="GroceryListApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E5f-2x-2fV">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="b0C-XJ-DRi">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KgW-mU-VUS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="b0C-XJ-DRi" firstAttribute="leading" secondItem="KgW-mU-VUS" secondAttribute="leading" id="2uE-Pu-Itf"/>
+                            <constraint firstItem="KgW-mU-VUS" firstAttribute="trailing" secondItem="b0C-XJ-DRi" secondAttribute="trailing" id="rDZ-gr-5w4"/>
+                            <constraint firstItem="KgW-mU-VUS" firstAttribute="bottom" secondItem="b0C-XJ-DRi" secondAttribute="bottom" id="ynP-zc-bMD"/>
+                            <constraint firstItem="b0C-XJ-DRi" firstAttribute="top" secondItem="KgW-mU-VUS" secondAttribute="top" id="yvx-aq-liy"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="sq6-ye-gcY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rCs-Bm-JEm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4051" y="-2"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TKx-kE-JY3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dSZ-ts-TSD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zWP-Dz-gMB">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="mIN-aw-L7t"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zgv-b8-dqH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.671755725190835" y="-2.1126760563380285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4Yi-fU-nI4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KRG-vU-LqU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tfe-LJ-dSC">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QV7-gf-XFx" kind="relationship" relationship="rootViewController" id="ogu-FA-SEX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="asB-nJ-fUG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2110.6870229007632" y="-2.1126760563380285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="scribble" catalog="system" width="128" height="117"/>
+        <systemColor name="quaternarySystemFillColor">
+            <color red="0.45490196078431372" green="0.45490196078431372" blue="0.50196078431372548" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
