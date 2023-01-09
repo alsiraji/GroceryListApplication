@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 class RegisterViewController: UIViewController {
 
-    
+    var handle: AuthStateDidChangeListenerHandle?
     @IBOutlet weak var emailTextField: UITextField!
     
     
@@ -18,10 +18,13 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var errorTextView: UITextView!
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+ 
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        
 
     }
     
@@ -46,7 +49,13 @@ class RegisterViewController: UIViewController {
                     print(error.localizedDescription)
                     self.creatAlert(title: "Error Log In", message: error.localizedDescription)
                 }
-                
+                else{
+                    self.view.backgroundColor = .green
+                    
+                }
+//                if authResult?.user != nil {
+//                    self.dismiss(animated: true)
+//                }
             }
         }
         
@@ -62,7 +71,9 @@ class RegisterViewController: UIViewController {
                     print(error.localizedDescription)
                     self.creatAlert(title: "Error Signing Up", message: error.localizedDescription)
                 }
-                
+                if authResult?.user != nil {
+                    self.dismiss(animated: true)
+                }
             }
         }
         
