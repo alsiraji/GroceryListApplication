@@ -15,8 +15,10 @@ class FamilyUsersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+     
 
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func signOutButtonPressed(_ sender: UIBarButtonItem) {
@@ -26,4 +28,21 @@ class FamilyUsersViewController: UIViewController {
             print("Error Signing Out: ", error.localizedDescription)
         }
     }
+}
+
+
+extension FamilyUsersViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "") as? UsersTableViewCell
+        else {return UITableViewCell()}
+        //cell.textLabel?.text =
+        return cell
+    }
+    
+    
+    
 }

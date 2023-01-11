@@ -12,6 +12,7 @@
 		2E022366296AECE9009E2269 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E022365296AECE9009E2269 /* LaunchViewController.swift */; };
 		2E022368296B90F9009E2269 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E022367296B90F9009E2269 /* ListTableViewCell.swift */; };
 		2E02236A296B912A009E2269 /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E022369296B912A009E2269 /* UsersTableViewCell.swift */; };
+		2E02236E296D4229009E2269 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E02236D296D4229009E2269 /* DatabaseManager.swift */; };
 		2ED1B281296AC2BB002710C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1B280296AC2BB002710C3 /* AppDelegate.swift */; };
 		2ED1B283296AC2BB002710C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1B282296AC2BB002710C3 /* SceneDelegate.swift */; };
 		2ED1B285296AC2BB002710C3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1B284296AC2BB002710C3 /* RegisterViewController.swift */; };
@@ -32,6 +33,7 @@
 		2E022365296AECE9009E2269 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		2E022367296B90F9009E2269 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		2E022369296B912A009E2269 /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
+		2E02236D296D4229009E2269 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		2ED1B27D296AC2BB002710C3 /* GroceryListApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryListApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ED1B280296AC2BB002710C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2ED1B282296AC2BB002710C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,15 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		2E02236C296D41ED009E2269 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				2E02236D296D4229009E2269 /* DatabaseManager.swift */,
+			);
+			name = Firebase;
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		2ED1B274296AC2BB002710C3 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +113,7 @@
 				2ED1B282296AC2BB002710C3 /* SceneDelegate.swift */,
 				2E02233E296ACE16009E2269 /* ViewControllers */,
 				2ED1B286296AC2BB002710C3 /* Main.storyboard */,
+				2E02236C296D41ED009E2269 /* Firebase */,
 				2E02236B296B9181009E2269 /* TableViewCell */,
 				2ED1B28C296AC2BC002710C3 /* Assets.xcassets */,
 				2ED1B28E296AC2BC002710C3 /* LaunchScreen.storyboard */,
@@ -195,6 +207,7 @@
 			files = (
 				2E022340296ACE44009E2269 /* GroceryListViewController.swift in Sources */,
 				2E022368296B90F9009E2269 /* ListTableViewCell.swift in Sources */,
+				2E02236E296D4229009E2269 /* DatabaseManager.swift in Sources */,
 				2E022342296ACE72009E2269 /* FamilyUsersViewController.swift in Sources */,
 				2ED1B285296AC2BB002710C3 /* RegisterViewController.swift in Sources */,
 				2ED1B281296AC2BB002710C3 /* AppDelegate.swift in Sources */,
