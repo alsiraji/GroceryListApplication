@@ -157,7 +157,7 @@
             </objects>
             <point key="canvasLocation" x="4890.8396946564881" y="-2.1126760563380285"/>
         </scene>
-        <!--Family Users View Controller-->
+        <!--Family (Online)-->
         <scene sceneID="lB6-uP-vJp">
             <objects>
                 <viewController id="AMa-Dc-QMq" customClass="FamilyUsersViewController" customModule="GroceryListApplication" customModuleProvider="target" sceneMemberID="viewController">
@@ -189,7 +189,7 @@
                             <constraint firstItem="b0C-XJ-DRi" firstAttribute="top" secondItem="KgW-mU-VUS" secondAttribute="top" id="yvx-aq-liy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="sq6-ye-gcY">
+                    <navigationItem key="navigationItem" title="Family (Online)" id="sq6-ye-gcY">
                         <barButtonItem key="rightBarButtonItem" title="Sign out" id="Fk3-1K-eAy">
                             <connections>
                                 <action selector="signOutButtonPressed:" destination="AMa-Dc-QMq" id="SVf-bx-Nwq"/>
