@@ -11,11 +11,11 @@ import FirebaseFirestore
 import FirebaseDatabase
 
 class GroceryListViewController: UIViewController {
-    
-    
+    //MARK: - Vars
     @IBOutlet weak var tableView: UITableView!
+    
     private var listener: ListenerRegistration?
-    private var handle: DatabaseHandle?
+    private var handle: DatabaseHandle!
     private let dbManager = DatabaseManager()
     
     private var list = [GroceryItem](){
@@ -27,59 +27,34 @@ class GroceryListViewController: UIViewController {
     }
     
     
+    //MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-
-  
+        setOnlineUser()
+        
+        
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-//        let value = snapshot.value as? NSDictionary
-         Database.database().reference().child(DatabaseManager.groceryList).observe(.value) {snapshot in
+        handle = Database.database().reference().child(DatabaseManager.groceryList).observe(.value) {snapshot in
             guard let children = snapshot.children.allObjects as? [DataSnapshot] else {return}
-            print("<<<<<<<<<<<<<<<<<<<<")
-           // guard let item = children[0].value as? Dictionary<String, Any> else {return}
-            
-            //let newItem = GroceryItem(item)
-            //print(children[0].key ,"Value",newItem)
-            print("<<<<<<<<<<<<<<<<<<<<")
             let templist = children.map({
                 GroceryItem($0.value as? Dictionary<String, Any>)
-               // GroceryItem(item.value as! [String : Any])
             })
-            
             self.list = templist
         }
-        
-        listener = Firestore.firestore().collection(DatabaseManager.groceryList).addSnapshotListener({ (snapshot,error) in
-            if let error = error {
-                print("error \(error.localizedDescription)")
-
-            }else if let snapshot = snapshot{
-                let dbList = snapshot.documents.map {
-                    GroceryItem($0.data())
-
-                }
-             //   self.list = dbList
-            }
-        })
-//
-        
-        
-        
-        
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-       // listener?.remove()
-        
-        
+        Database.database().reference().child(DatabaseManager.groceryList).removeAllObservers()
     }
     
-    
-    
+    //MARK: - List CRUD functions
+    //create new item
     @IBAction func addItemToList(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "New Item", message: nil, preferredStyle: .alert)
         alertController.addTextField { textField in
@@ -88,14 +63,12 @@ class GroceryListViewController: UIViewController {
         }
         let saveAction = UIAlertAction(title: "save", style: .default){[unowned self] saveAction in
             guard let name = alertController.textFields?[0].text, !name.isEmpty  else {return}
-            //self.creatNewItem(name: name)
-            self.dbManager.creatGroceryItem(itemName: name) {[weak self] (result) in
+            self.dbManager.creatGroceryItem(itemName: name) { (result) in
                 switch result{
                 case .failure(let error):
                     print("error Creating list item: \(error.localizedDescription)")
                     
                 case .success:
-                    //fetch the database and updetae the table view
                     print("succefuly added")
                 }
             }
@@ -104,7 +77,6 @@ class GroceryListViewController: UIViewController {
         alertController.addAction(saveAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true)
-        
     }
     
     func creatNewItem(name: String){
@@ -115,37 +87,38 @@ class GroceryListViewController: UIViewController {
             case.success:
                 print("success")
             }
-            
         }
-        guard let userEmail = Auth.auth().currentUser?.email else {return}
-//        let newItem = GroceryItem(name: name, ceatedBy: userEmail)
-//        list.append(newItem)
-        tableView.reloadData()
-        
     }
+    
     func editListItem(name: String ,indexPath: IndexPath){
-        
-       
         let item = list[indexPath.row]
         let newName = name
         dbManager.updateGroceryItem(item: item, newName: newName)
         tableView.reloadData()
-        
     }
+    
     func deleteListItem(indexPath: IndexPath){
         let item = list[indexPath.row]
-        
         dbManager.deleteGroceryItem(item: item)
-        
-        //tableView.reloadData()
-        
     }
+    //MARK: - CurrentUser live updates
     
-    
-  
+    func setOnlineUser(){
+        guard let user = Auth.auth().currentUser else {return}
+        dbManager.creatDataBaseUser(authUser: user) {  (result) in
+            switch result{
+            case.success:
+                print("success adding online user")
+            case.failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
+
+//MARK: - TableView Delegate & DataSource
+
 extension GroceryListViewController: UITableViewDelegate , UITableViewDataSource {
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         list.count
@@ -160,6 +133,7 @@ extension GroceryListViewController: UITableViewDelegate , UITableViewDataSource
         cell.textLabel?.font = .systemFont(ofSize: 32)
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alertController = UIAlertController(title: "Edit Item", message: nil, preferredStyle: .alert)
         alertController.addTextField { textField in
@@ -175,32 +149,19 @@ extension GroceryListViewController: UITableViewDelegate , UITableViewDataSource
         alertController.addAction(saveAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true)
-       
     }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-      deleteListItem(indexPath: indexPath)
+        deleteListItem(indexPath: indexPath)
     }
-    
-    
-    
 }
 
+//MARK: - TextField Delegate
 extension GroceryListViewController: UITextFieldDelegate {
-    
+    // To manage the alerts TextFields
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-    
-}
-
-
-
-
-struct onlineUser{
-    let email: String
-    var listItems: [GroceryItem]
-    
-    
     
 }

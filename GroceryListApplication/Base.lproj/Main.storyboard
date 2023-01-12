@@ -60,13 +60,6 @@
                                     <action selector="signUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nTb-2E-iwx"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6Ok-Xa-To3">
-                                <rect key="frame" x="20" y="618" width="353" height="200"/>
-                                <color key="tintColor" systemColor="systemRedColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
@@ -79,12 +72,8 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HZW-zN-XM5" secondAttribute="trailing" constant="20" id="Hfm-RW-fS6"/>
                             <constraint firstItem="HZW-zN-XM5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="57" id="KSk-Ey-hys"/>
                             <constraint firstItem="BRP-xQ-eeg" firstAttribute="top" secondItem="dua-mR-v75" secondAttribute="bottom" constant="58" id="Lef-Md-4mH"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6Ok-Xa-To3" secondAttribute="trailing" constant="20" id="Nfk-Lq-pro"/>
                             <constraint firstItem="BRP-xQ-eeg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Sf5-cm-s41"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6Ok-Xa-To3" secondAttribute="bottom" id="iXa-j3-byx"/>
                             <constraint firstItem="HZW-zN-XM5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="jCs-bA-ceA"/>
-                            <constraint firstItem="6Ok-Xa-To3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="kUg-Ff-DgH"/>
-                            <constraint firstItem="6Ok-Xa-To3" firstAttribute="top" secondItem="Kmw-Kv-DOZ" secondAttribute="bottom" constant="46" id="nIc-US-y0w"/>
                             <constraint firstItem="dua-mR-v75" firstAttribute="top" secondItem="HZW-zN-XM5" secondAttribute="bottom" constant="77" id="uga-Od-nRs"/>
                             <constraint firstItem="CEK-qI-edj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xFm-Gj-mqV"/>
                             <constraint firstItem="Kmw-Kv-DOZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yBq-fp-Lzj"/>
@@ -93,7 +82,6 @@
                     <navigationItem key="navigationItem" id="4ea-yo-z8D"/>
                     <connections>
                         <outlet property="emailTextField" destination="dua-mR-v75" id="KRA-Cg-IYq"/>
-                        <outlet property="errorTextView" destination="6Ok-Xa-To3" id="TA7-od-3hI"/>
                         <outlet property="passWordTextField" destination="BRP-xQ-eeg" id="MuS-V7-JeU"/>
                     </connections>
                 </viewController>
@@ -169,7 +157,7 @@
             </objects>
             <point key="canvasLocation" x="4890.8396946564881" y="-2.1126760563380285"/>
         </scene>
-        <!--Family (Online)-->
+        <!--Family Users View Controller-->
         <scene sceneID="lB6-uP-vJp">
             <objects>
                 <viewController id="AMa-Dc-QMq" customClass="FamilyUsersViewController" customModule="GroceryListApplication" customModuleProvider="target" sceneMemberID="viewController">
@@ -201,7 +189,7 @@
                             <constraint firstItem="b0C-XJ-DRi" firstAttribute="top" secondItem="KgW-mU-VUS" secondAttribute="top" id="yvx-aq-liy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Family (Online)" id="sq6-ye-gcY">
+                    <navigationItem key="navigationItem" id="sq6-ye-gcY">
                         <barButtonItem key="rightBarButtonItem" title="Sign out" id="Fk3-1K-eAy">
                             <connections>
                                 <action selector="signOutButtonPressed:" destination="AMa-Dc-QMq" id="SVf-bx-Nwq"/>
@@ -291,9 +279,6 @@
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="scribble" catalog="system" width="128" height="117"/>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="quaternarySystemFillColor">
             <color red="0.45490196078431372" green="0.45490196078431372" blue="0.50196078431372548" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -302,9 +287,6 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

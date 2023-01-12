@@ -7,38 +7,25 @@
 
 import UIKit
 import FirebaseAuth
-class RegisterViewController: UIViewController {
+import FirebaseCore
 
+
+class RegisterViewController: UIViewController {
+    //MARK: - Vars
     var handle: AuthStateDidChangeListenerHandle?
+    private let dbManager = DatabaseManager()
     @IBOutlet weak var emailTextField: UITextField!
-    
-    
     @IBOutlet weak var passWordTextField: UITextField!
     
-    
-    @IBOutlet weak var errorTextView: UITextView!
-    
+    //MARK: - lifeCycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
- 
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
     }
-    
-    private func checkFieldsInput() -> Bool{
-        if emailTextField == nil || passWordTextField == nil {
-            // Show Alert
-            creatAlert(title: "Field Empty", message: "Complete all Fields to continue")
-        return false
-        }
-        else {
-            return true
-        }
-    }
-    
+    //MARK: - Register Authintecation
     
     @IBAction func logInButton(_ sender: UIButton) {
         if checkFieldsInput(){
@@ -53,15 +40,11 @@ class RegisterViewController: UIViewController {
                     self.view.backgroundColor = .green
                     
                 }
-//                if authResult?.user != nil {
-//                    self.dismiss(animated: true)
-//                }
             }
         }
         
     }
     
-
     @IBAction func signUpButton(_ sender: UIButton) {
         if checkFieldsInput(){
             guard let email = emailTextField.text else {return}
@@ -70,20 +53,26 @@ class RegisterViewController: UIViewController {
                 if let error = error {
                     print(error.localizedDescription)
                     self.creatAlert(title: "Error Signing Up", message: error.localizedDescription)
-                }
-                if authResult?.user != nil {
-                    self.dismiss(animated: true)
+                }else if let authResult = authResult{
+                    print(authResult.description)
                 }
             }
         }
         
     }
+    private func checkFieldsInput() -> Bool{
+        if emailTextField == nil || passWordTextField == nil {
+            creatAlert(title: "Field Empty", message: "Complete all Fields to continue")
+            return false
+        }
+        else {
+            return true
+        }
+    }
     
     public func creatAlert(title: String , message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action1 = UIAlertAction(title: "ok", style: .default)
         let actionCancel = UIAlertAction(title: "cancel", style: .cancel)
-//        alert.addAction(action1)
         alert.addAction(actionCancel)
         present(alert, animated: true)
         
